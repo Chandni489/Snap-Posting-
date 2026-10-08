@@ -45,8 +45,6 @@ SnapBoard is a Pinterest-style social media web application where users can crea
 ```text
 SnapBoard/
 │
-├── public/
-│   └── images/
 │
 ├── src/
 │   ├── controllers/
@@ -70,7 +68,7 @@ SnapBoard/
 
 SnapBoard uses Passport.js and Express Session for authentication.
 
-```text
+
 User Registration
        ↓
 User stored in MongoDB
@@ -84,7 +82,7 @@ Session Created
 Protected Routes
        ↓
 Create / Edit / Delete Posts
-```
+
 
 ## ⚙️ Installation
 
