@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Card</title>
+
+  <!-- Tailwind CSS -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+
+  <!-- Card -->
+  <%if(postdata.length >0){%>
+   <% postdata.forEach((data)=>{%>
+        <div class="w-full max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden  p-5">
+
+```
+<!-- Post Image -->
+<div class="w-full h-72 bg-gray-200">
+  <img
+    src="<%=data.url%>"
+    alt="Post image"
+    class="w-full h-full object-cover"
+  >
+</div>
+
+<!-- Card Content -->
+<div class="p-5">
+
+  <!-- Email -->
+  <p class="text-sm text-gray-500 mb-1">
+   <%=data.email%>
+  </p>
+
+  <!-- Title -->
+  <h2 class="text-xl font-bold text-gray-900">
+  <%=data.title%>
+  </h2>
+
+  <!-- Like -->
+  <div class="flex items-center justify-between mt-4">
+
+    <div class="flex items-center gap-2">
+
+      <button
+        class="text-3xl text-gray-700 hover:text-red-500 hover:scale-110 transition duration-200"
+      >
+        ♡
+      </button>
+
+      <span class="text-sm text-gray-600">
+        <%=data.likes.length%>
+      </span>
+
+    </div>
+
+  </div>
+
+  <!-- Buttons -->
+  <div class="flex gap-3 mt-5">
+
+    <!-- Edit -->
+    <a href="/edit/<%=data._id%>"
+      class="flex-1 bg-blue-500 text-white py-2.5 rounded-lg font-medium hover:bg-blue-600 transition"
+    >
+      Edit
+    </a>
+
+    <!-- Delete -->
+    <a href="/delete/<%=data._id%>"
+      class="flex-1 bg-red-500 text-white py-2.5 rounded-lg font-medium hover:bg-red-600 transition"
+    >
+      Delete
+    </a>
+
+  </div>
+
+</div>
+
+  </div>
+   <% })%>
+  <%} else{%>
+    <p>Not Found</p>
+  <%}%>
+</body>
+</html>
